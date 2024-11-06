@@ -4,25 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio</title>
+    <style>
+        body {
+            background-color: chocolate;
+            color: white;~
+            
+        }
+
+        h1 {
+            color: rgb(43, 24, 10);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        input.Pesquisar {
+            color: white;
+            
+        }
+    </style>
+    
 </head>
 <body>
-    <h1>Internacional</h1>
-    <input type="text" name="país" id="país">
-    <input type="button" value="Verificar" onclick="Verf">
-    <div id="res">
+    <h1>Nacionalidade</h1>
+    Qual seu pais?: <input type="name" name="país" id="país">
+    <input type="button" value="Pesquisar" ondblclick="clicar()">
+    <div id="res"></div>
+    
+    
 
     </div>
 
 </body>
 <script>
-    function Verf() {
-        var pv = window.document.querySelectorAll('input#país')
-        var res = window.document.querySelector('div#res')
-        var país = text(pv.value)
-        if (país == )
-
-        
-
+    function clicar(){
+        var paísp = window.document.getElementById('país')
+        var res = window.document.getElementById('res')
+        var vel = String(paísp.value)
+        var paisp = String(window.document.getElementById('país').value).toLowerCase()
+        res.innerText = `Teu país é ${vel}`
+        if(vel =='Portugal'){
+            res.innerHTML = 'Tu és <strong>Português</strong>!'
+        } else(res.innerHTML = 'Tu és <strong>ESTRANGUEIRO!</strong>')
     }
+
 </script>
 </html>
