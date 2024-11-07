@@ -3,8 +3,8 @@ var msg = window.document.getElementById('msg')
 var img = window.document.getElementById('imagem')
 var data = new Date()
 var minute = data.getMinutes()
-var hora = data.getHours()
-//var hora = 22
+//var hora = data.getHours()
+var hora =
 
 msg.innerHTML = `Agora são ${hora} horas e ${minute} minutos` 
 if (hora >= 0 && hora < 12) {
