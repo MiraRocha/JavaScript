@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Números</title>
+    <link rel="stylesheet" href="exemplo.css">
+</head>
+<body">
+    <h1>Analisador de Números</h1>
+    <div>
+        <label for="num">Digite um número (1 a 100):</label>
+        <input type="number" id="num" min="1" max="100">
+        <button onclick="adicionar()">Adicionar</button>
+        <button onclick="finalizar()">Finalizar</button>
+    </div>
+
+    <div>
+        <select id="lista" size="10" style="width: 200px;"></select>
+    </div>
+
+    <div id="resultado"></div>
+
+    <script>
+        let numeros = []; // Array para armazenar os números
+
+        function adicionar() {
+            let num = document.getElementById('num').value; // Captura o valor digitado
+            let lista = document.getElementById('lista');
+            let resultado = document.getElementById('resultado');
+            let numero = Number(num);
+
+            // Validações
+            if (num === "" || numero < 1 || numero > 100 || numeros.includes(numero)) {
+                alert('Número inválido ou já adicionado!');
+                return;
+            }
+
+            // Adiciona o número à lista
+            numeros.push(numero);
+
+            // Atualiza a exibição no select
+            let item = document.createElement('option');
+            item.text = `Número ${numero} adicionado.`;
+            lista.appendChild(item);
+
+            // Limpa o input e resultado
+            resultado.innerHTML = '';
+            document.getElementById('num').value = '';
+            document.getElementById('num').focus();
+        }
+
+        function finalizar() {
+            if (numeros.length === 0) {
+                alert('Adicione pelo menos um número antes de finalizar!');
+                return;
+            }
+
+            // Estatísticas
+            let total = numeros.length;
+            let maior = Math.max(...numeros);
+            let menor = Math.min(...numeros);
+            let soma = numeros.reduce((a, b) => a + b, 0);
+            let media = soma / total;
+
+            // Exibe os resultados
+            let resultado = document.getElementById('resultado');
+            resultado.innerHTML = `
+                <p>Total de números: ${total}</p>
+                <p>Maior número: ${maior}</p>
+                <p>Menor número: ${menor}</p>
+                <p>Soma dos números: ${soma}</p>
+                <p>Média dos números: ${media.toFixed(2)}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
